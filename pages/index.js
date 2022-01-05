@@ -1,6 +1,20 @@
 import Head from 'next/head'
+import { useWeb3 } from "@3rdweb/hooks";
 
 export default function Home() {
+  const { connectWallet, address, error, provider } = useWeb3();
+  console.log("👋 Address:", address);
+
+  if (!address) {
+    return (
+      <div className="landing">
+        <button onClick={() => connectWallet("injected")} className="btn-hero">
+          Connect your wallet
+        </button>
+      </div>
+    );
+  }
+
   const data = [
     {
       title: 'Woohoo',
