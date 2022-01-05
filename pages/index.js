@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useWeb3 } from "@3rdweb/hooks";
+import Nav from '../components/nav'
 
 export default function Home() {
   const { connectWallet, address, error, provider } = useWeb3();
@@ -50,6 +51,8 @@ export default function Home() {
         <meta name="description" content="SeanPlusPlus NextJS" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Nav address={address} />
 
       <main className="md:container md:mx-auto px-2">
         <h1 className="text-4xl font-bold mb-4 mt-4">
