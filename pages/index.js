@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Hello NextJS</title>
+        <title>Web3 Boilerplate</title>
         <meta name="description" content="SeanPlusPlus NextJS" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
