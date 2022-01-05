@@ -5,7 +5,7 @@ import Nav from '../components/nav'
 
 export default function Home() {
   const { CONTRACT_ADDRESS } = useAppContext();
-  console.log(CONTRACT_ADDRESS);
+  console.log('*', CONTRACT_ADDRESS);
 
   const { connectWallet, address, error, provider } = useWeb3();
 
