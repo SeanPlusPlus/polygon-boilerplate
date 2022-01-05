@@ -7,10 +7,12 @@ export default function Home() {
 
   if (!address) {
     return (
-      <div className="landing">
-        <button onClick={() => connectWallet("injected")} className="btn-hero">
-          Connect your wallet
-        </button>
+      <div className="flex h-screen">
+        <div className="m-auto">
+          <button onClick={() => connectWallet("injected")} className="btn btn-secondary">
+            Connect your wallet
+          </button>
+        </div>
       </div>
     );
   }
