@@ -2,9 +2,9 @@ import Head from 'next/head'
 import { useWeb3 } from "@3rdweb/hooks";
 import Nav from '../components/nav'
 
-export default function Home() {
+export default function Home({ CONTRACT_ADDRESS }) {
+  console.log(CONTRACT_ADDRESS);
   const { connectWallet, address, error, provider } = useWeb3();
-  console.log("👋 Address:", address);
 
   if (!address) {
     return (
