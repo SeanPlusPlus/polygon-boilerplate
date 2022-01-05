@@ -1,9 +1,12 @@
 import Head from 'next/head'
 import { useWeb3 } from "@3rdweb/hooks";
+import { useAppContext } from "../AppContext";
 import Nav from '../components/nav'
 
-export default function Home({ CONTRACT_ADDRESS }) {
+export default function Home() {
+  const { CONTRACT_ADDRESS } = useAppContext();
   console.log(CONTRACT_ADDRESS);
+
   const { connectWallet, address, error, provider } = useWeb3();
 
   if (!address) {

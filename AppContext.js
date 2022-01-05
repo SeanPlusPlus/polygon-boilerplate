@@ -7,7 +7,7 @@ export const defaultValues = {
   // network,
   // config,
   // NFT,
-  CONTRACT_ADDRESS: "<hello_world>",
+  CONTRACT_ADDRESS: "CONTRACT_ADDRESS",
 };
 
 const AppContext = createContext(defaultValues);
