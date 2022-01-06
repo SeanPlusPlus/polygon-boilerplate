@@ -4,7 +4,8 @@ import Main from '../components/main'
 
 export default function App() {
   const { CONTRACT_ADDRESS } = useAppContext();
-  console.log('*', CONTRACT_ADDRESS);
+
+  console.log('CONTRACT_ADDRESS', CONTRACT_ADDRESS);
 
   const { connectWallet, address, error, provider } = useWeb3();
 
@@ -20,5 +21,5 @@ export default function App() {
     );
   }
   
-  return <Main address={address} />
+  return <Main />
 }

@@ -1,34 +1,12 @@
 import Head from 'next/head'
+import { useWeb3 } from "@3rdweb/hooks";
 import Nav from './nav'
 
-const data = [
-  {
-    title: 'Woohoo!',
-    badge: 'primary',
-    src: 'https://picsum.photos/id/1002/400/250',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.',
-  },
-  {
-    title: 'Dude',
-    badge: 'secondary',
-    src: 'https://picsum.photos/id/1003/400/250',
-    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-  },
-  {
-    title: 'Stoked',
-    badge: 'primary',
-    src: 'https://picsum.photos/id/1004/400/250',
-    description: 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? ',
-  },
-  {
-    title: 'Yo Yo Yo',
-    badge: 'primary',
-    src: 'https://picsum.photos/id/1005/400/250',
-    description: 'Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"',
-  },
-]
+export default function Main() {
+  const { address } = useWeb3();
 
-export default function Main({ address }) {
+  const data = [];
+
   return (
     <div>
       <Head>
