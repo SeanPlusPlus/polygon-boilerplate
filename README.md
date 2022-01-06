@@ -1,4 +1,4 @@
-# Web3 Boilerplate
+# Web3 Next Starter
 
 ## Getting Started
 
