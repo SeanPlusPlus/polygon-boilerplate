@@ -5,7 +5,12 @@ import Nav from './nav'
 export default function Main() {
   const { address } = useWeb3();
 
-  const data = [];
+  const data = [
+    {
+      address: 'f727',
+      message: 'stoked',
+    }
+  ];
 
   return (
     <div>
@@ -22,22 +27,18 @@ export default function Main() {
           Hello world!
         </h1>
 
-        <div className="grid md:grid-cols-2 md:gap-2 lg:grid-cols-4 lg:gap-4">
+        <div className="grid grid-cols-1 gap-6 lg:p-10 xl:grid-cols-3 lg:bg-base-200 rounded-box">
           {data.map((item, idx) => (
-            <div key={idx} className="card card-bordered mb-4">
-              <figure>
-                <img src={item.src} />
-              </figure> 
-              <div className="card-body">
-                <h2 className="card-title">
-                  {item.title}
-                  <div className={`badge mx-2 badge-${item.badge}`}>NEW</div>
-                </h2> 
-                <p className="pb-10">{item.description}</p> 
-                <div className="justify-end card-actions">
-                  <div className="absolute bottom-0 right-0 h-14 w-32 ...">
-                    <button className="btn btn-secondary">More info</button>
-                  </div>
+            <div key={idx} className="card shadow-lg compact side bg-base-100">
+              <div className="flex-row items-center space-x-4 card-body">
+                <div className="flex-1">
+                  <h2 className="card-title">{item.address}</h2>
+                  <p className="text-base-content text-opacity-40">
+                    {item.message}
+                  </p>
+                </div>
+                <div className="flex-0">
+                  <button className="btn btn-sm">Follow</button>
                 </div>
               </div>
             </div> 
