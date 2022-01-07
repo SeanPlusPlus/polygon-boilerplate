@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import Head from 'next/head'
 import { ethers } from "ethers";
 import { useWeb3 } from "@3rdweb/hooks";
@@ -77,6 +78,13 @@ export default function Main() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    console.log(data);
+  };
+  const onError = (errors, e) => console.log(errors, e);
+
   return (
     <div>
       <Head>
@@ -109,8 +117,19 @@ export default function Main() {
             <div className="card-body">
               <div className="form-control">
                 <div className="relative">
-                  <input type="text" placeholder="New Message" className="w-full pr-16 input input-bordered" /> 
-                  <button className="absolute top-0 right-0 rounded-l-none btn btn-primary">send</button>
+                  <form onSubmit={handleSubmit(onSubmit, onError)}>
+                    <input
+                      {...register("message")}
+                      type="text"
+                      placeholder="New Message"
+                      className="w-full pr-16 input input-bordered"
+                    /> 
+                    <button
+                      className="absolute top-0 right-0 rounded-l-none btn btn-primary"
+                    >
+                      send
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
