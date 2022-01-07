@@ -8,6 +8,9 @@ import Nav from './nav'
 
 export default function Main() {
   const [allWaves, setAllWaves] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [mining, setMining] = useState(false);
+
   const { address } = useWeb3();
   const { CONTRACT_ADDRESS, CONTRACT_ABI } = useAppContext();
   const ABI = CONTRACT_ABI.abi;
@@ -51,6 +54,57 @@ export default function Main() {
     }
   }
 
+  const wave = async (message) => {
+    try {
+      const { ethereum } = window;
+
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const wavePortalContract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
+
+        let count = await wavePortalContract.getTotalWaves();
+        console.log("Retrieved total wave count...", count.toNumber());
+
+        /*
+        * Execute the actual wave from your smart contract
+        */
+        console.log("message", message);
+        const waveTxn = await wavePortalContract.wave(message, { gasLimit: 300000 })
+        setMining(true);
+        console.log("Mining...", waveTxn.hash);
+
+        await waveTxn.wait();
+        console.log("Mined -- ", waveTxn.hash);
+
+        count = await wavePortalContract.getTotalWaves();
+        setCount(count.toNumber());
+        setMining(false);
+        console.log("Retrieved total wave count...", count.toNumber());
+
+        const waves = await wavePortalContract.getAllWaves();
+        let wavesCleaned = [];
+        waves.forEach(wave => {
+          wavesCleaned.push({
+            address: wave.waver,
+            timestamp: new Date(wave.timestamp * 1000),
+            message: wave.message
+          });
+        });
+        wavesCleaned.reverse();
+        console.log('wavesCleaned', wavesCleaned);
+        setAllWaves(wavesCleaned);
+
+        setMessage("");
+      } else {
+        console.log("Ethereum object doesn't exist!");
+      }
+    } catch (error) {
+      console.log(error)
+      setShowModal(true)
+    }
+  }
+
   useEffect(() => {
     getAllWaves();
 
@@ -82,6 +136,7 @@ export default function Main() {
   const onSubmit = (data, e) => {
     e.preventDefault();
     console.log(data);
+    wave(data.message);
   };
   const onError = (errors, e) => console.log(errors, e);
 
