@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 import abi from '../utils/WavePortal.json';
 
-const WAVE_PORTAL_ADDRESS = '0xf7BFa193035855DF416AeC3BAd97c6672142fC6C';
+const WAVE_PORTAL_ADDRESS = '0x39f257618a4AD5391ecaAe9A675FAc59a72dB837';
 const WAVE_CONTRACT_ABI = abi;
 
 export const defaultValues = {
