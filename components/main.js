@@ -183,10 +183,21 @@ export default function Main() {
                       disabled={disabled}
                     /> 
                     <button
-                      className="absolute top-0 right-0 rounded-l-none btn btn-primary"
-                      disabled={disabled}
+                      className={`absolute top-0 right-0 rounded-l-none btn btn-primary ${disabled && 'pointer-events-none'}`}
                     >
-                      send
+                      {!mining &&
+                        <>send</>
+                      }
+                      {mining &&
+                        <>
+                          <span className="mr-3">
+                            mining
+                          </span>
+                          <span className="mining">
+                            <span role="img" aria-label="waiting">⏳</span>
+                          </span>
+                        </>
+                      }
                     </button>
                   </form>
                 </div>
