@@ -104,6 +104,19 @@ export default function Main() {
           </div>
         </div>
 
+        <div className="grid grid-cols-1 gap-6 lg:p-10 lg:bg-base-200 rounded-box mb-5">
+          <div className="card shadow-lg compact side bg-base-100">
+            <div className="card-body">
+              <div className="form-control">
+                <div className="relative">
+                  <input type="text" placeholder="New Message" className="w-full pr-16 input input-bordered" /> 
+                  <button className="absolute top-0 right-0 rounded-l-none btn btn-primary">send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 gap-6 lg:p-10 lg:bg-base-200 rounded-box">
           {allWaves.map((wave, idx) => {
             return (
