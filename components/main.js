@@ -88,9 +88,21 @@ export default function Main() {
       <Nav address={address} />
 
       <main className="md:container px-2 md:mx-auto lg:max-w-3xl">
-        <h1 className="text-4xl font-bold mb-4 mt-4">
-          <>{allWaves.length} <span role="img" aria-label="wave">👋</span>&#39;s</>
-        </h1>
+        <div className="grid grid-cols-1 gap-6 lg:p-10 lg:bg-base-200 rounded-box mb-5">
+          <div className="card shadow-lg compact side bg-base-100">
+            <div className="card-body">
+              <h2 className="my-4 text-4xl font-bold card-title">
+                Hello <span role="img" aria-label="wave">👋</span>
+              </h2>
+              <p>
+                Welcome to my web3 boilerplate project; feel free to post a message to the board and say hi!
+              </p>
+              <div className="divider" />
+              <div className="stat-value text-primary">{allWaves.length}</div> 
+              <div className="stat-title">Messages so far</div> 
+            </div>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 gap-6 lg:p-10 lg:bg-base-200 rounded-box">
           {allWaves.map((wave, idx) => {
