@@ -8,7 +8,7 @@ import Nav from './nav'
 
 export default function Main() {
   const [allWaves, setAllWaves] = useState([]);
-  const [showModal, setShowModal] = useState(false);
+  const [newMessage, setNewMessage] = useState(false);
   const [mining, setMining] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
@@ -96,13 +96,14 @@ export default function Main() {
         console.log('wavesCleaned', wavesCleaned);
         setAllWaves(wavesCleaned);
         setDisabled(false);
+        setNewMessage(true)
         reset();
       } else {
         console.log("Ethereum object doesn't exist!");
       }
     } catch (error) {
       console.log(error)
-      setShowModal(true)
+      setNewMessage(true)
     }
   }
 
@@ -222,6 +223,13 @@ export default function Main() {
                       {wave.timestamp.toString()}
                     </p>
                   </div>
+                  {newMessage && idx === 0 && (
+                    <div className="flex-0">
+                      <div className="badge badge-success">
+                        New Message
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             )
