@@ -87,12 +87,12 @@ export default function Main() {
 
       <Nav address={address} />
 
-      <main className="md:container md:mx-auto px-2">
+      <main className="md:container px-2 md:mx-auto lg:max-w-3xl">
         <h1 className="text-4xl font-bold mb-4 mt-4">
           <>{allWaves.length} <span role="img" aria-label="wave">👋</span>&#39;s</>
         </h1>
 
-        <div className="grid grid-cols-1 gap-6 lg:p-10 xl:grid-cols-3 lg:bg-base-200 rounded-box">
+        <div className="grid grid-cols-1 gap-6 lg:p-10 lg:bg-base-200 rounded-box">
           {allWaves.map((wave, idx) => {
             return (
               <div key={idx} className="card shadow-lg compact side bg-base-100">
