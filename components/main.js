@@ -10,7 +10,9 @@ export default function Main() {
   const [allWaves, setAllWaves] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [mining, setMining] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
+  const { register, reset, handleSubmit } = useForm();
   const { address } = useWeb3();
   const { CONTRACT_ADDRESS, CONTRACT_ABI } = useAppContext();
   const ABI = CONTRACT_ABI.abi;
@@ -78,7 +80,6 @@ export default function Main() {
         console.log("Mined -- ", waveTxn.hash);
 
         count = await wavePortalContract.getTotalWaves();
-        setCount(count.toNumber());
         setMining(false);
         console.log("Retrieved total wave count...", count.toNumber());
 
@@ -94,8 +95,8 @@ export default function Main() {
         wavesCleaned.reverse();
         console.log('wavesCleaned', wavesCleaned);
         setAllWaves(wavesCleaned);
-
-        setMessage("");
+        setDisabled(false);
+        reset();
       } else {
         console.log("Ethereum object doesn't exist!");
       }
@@ -132,9 +133,9 @@ export default function Main() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const { register, handleSubmit } = useForm();
   const onSubmit = (data, e) => {
     e.preventDefault();
+    setDisabled(true);
     console.log(data);
     wave(data.message);
   };
@@ -178,9 +179,12 @@ export default function Main() {
                       type="text"
                       placeholder="New Message"
                       className="w-full pr-16 input input-bordered"
+                      autoComplete="off"
+                      disabled={disabled}
                     /> 
                     <button
                       className="absolute top-0 right-0 rounded-l-none btn btn-primary"
+                      disabled={disabled}
                     >
                       send
                     </button>
