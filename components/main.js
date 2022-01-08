@@ -4,7 +4,9 @@ import Head from 'next/head'
 import { ethers } from "ethers";
 import { useWeb3 } from "@3rdweb/hooks";
 import { useAppContext } from "../context/AppContext";
+
 import Nav from './nav'
+import Mining from './mining'
 
 export default function Main() {
   const [allWaves, setAllWaves] = useState([]);
@@ -179,27 +181,19 @@ export default function Main() {
                         disabled={disabled}
                       /> 
                       <button
-                        className={`absolute top-0 right-0 rounded-l-none btn btn-primary ${disabled && 'pointer-events-none'}`}
+                        className="absolute top-0 right-0 rounded-l-none btn btn-primary"
+                        disabled={disabled}
                       >
-                        {!mining &&
-                          <>send</>
-                        }
-                        {mining &&
-                          <>
-                            <span className="mr-3">
-                              mining
-                            </span>
-                            <span className="mining">
-                              <span role="img" aria-label="waiting">⏳</span>
-                            </span>
-                          </>
-                        }
+                        send
                       </button>
                     </form>
                   </div>
                 </div>
               </div>
             </div>
+            {mining &&
+              <Mining />
+            }
             {allWaves.map((wave, idx) => {
               return (
                 <div key={idx} className="card shadow-lg compact side bg-base-100">

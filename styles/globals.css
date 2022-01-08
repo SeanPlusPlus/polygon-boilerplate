@@ -5,7 +5,7 @@
 .mining {
   text-align: center;
   margin: 0px auto;
-  font-size: 1rem;
+  font-size: 2rem;
   animation-name: spin;
   animation-duration: 5000ms;
   animation-iteration-count: infinite;
