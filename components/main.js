@@ -152,88 +152,95 @@ export default function Main() {
 
       <Nav address={address} />
 
-      <main className="md:container px-2 md:mx-auto lg:max-w-3xl">
-        <div className="grid grid-cols-1 gap-6 lg:p-10 lg:bg-base-200 rounded-box mb-5">
-          <div className="card shadow-lg compact side bg-base-100">
-            <div className="card-body">
-              <h2 className="my-4 text-4xl font-bold card-title">
-                Hello <span role="img" aria-label="wave">👋</span>
-              </h2>
-              <p>
-                Welcome to my web3 boilerplate project; feel free to post a message to the board and say hi!
-              </p>
-              <div className="divider" />
-              <div className="stat-value text-primary">{allWaves.length}</div> 
-              <div className="stat-title">Messages so far</div> 
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 gap-6 lg:p-10 lg:bg-base-200 rounded-box mb-5">
-          <div className="card shadow-lg compact side bg-base-100">
-            <div className="card-body">
-              <div className="form-control">
-                <div className="relative">
-                  <form onSubmit={handleSubmit(onSubmit, onError)}>
-                    <input
-                      {...register("message")}
-                      type="text"
-                      placeholder="New Message"
-                      className="w-full pr-16 input input-bordered"
-                      autoComplete="off"
-                      disabled={disabled}
-                    /> 
-                    <button
-                      className={`absolute top-0 right-0 rounded-l-none btn btn-primary ${disabled && 'pointer-events-none'}`}
-                    >
-                      {!mining &&
-                        <>send</>
-                      }
-                      {mining &&
-                        <>
-                          <span className="mr-3">
-                            mining
-                          </span>
-                          <span className="mining">
-                            <span role="img" aria-label="waiting">⏳</span>
-                          </span>
-                        </>
-                      }
-                    </button>
-                  </form>
-                </div>
+      <main className="flex mb-4">
+        <div className="lg:w-3/12 m-1 hidden lg:block">
+          <div className="grid grid-cols-1 gap-6 lg:p-10 lg:bg-base-200 rounded-box mb-5">
+            <div className="card shadow-lg compact side bg-base-100 mb-1">
+              <div className="card-body">
+                <h2 className="my-4 text-4xl font-bold card-title">
+                  Hello <span role="img" aria-label="wave">👋</span>
+                </h2>
+                <p className="pb-5">
+                  Welcome to my web3 boilerplate project; feel free to post a message to the board and say hi!
+                </p>
               </div>
             </div>
           </div>
         </div>
-
-        <div className="grid grid-cols-1 gap-6 lg:p-10 lg:bg-base-200 rounded-box">
-          {allWaves.map((wave, idx) => {
-            return (
-              <div key={idx} className="card shadow-lg compact side bg-base-100">
-                <div className="flex-row items-center space-x-4 card-body">
-                  <div className="flex-1">
-                    <h3 className="card-title">
-                      {wave.message}
-                    </h3>
-                    <p className="text-base-content text-opacity-40">
-                      {wave.address}
-                    </p>
-                    <p className="text-base-content text-opacity-40">
-                      {wave.timestamp.toString()}
-                    </p>
+        <div className="flex-auto lg:w-6/12 m-1">
+          <div className="grid grid-cols-1 gap-6 lg:p-10 lg:bg-base-200 rounded-box">
+            <div className="card shadow-lg compact side bg-base-100">
+              <div className="card-body">
+                <div className="form-control">
+                  <div className="relative">
+                    <form onSubmit={handleSubmit(onSubmit, onError)}>
+                      <input
+                        {...register("message")}
+                        type="text"
+                        placeholder="New Message"
+                        className="w-full pr-16 input input-bordered"
+                        autoComplete="off"
+                        disabled={disabled}
+                      /> 
+                      <button
+                        className={`absolute top-0 right-0 rounded-l-none btn btn-primary ${disabled && 'pointer-events-none'}`}
+                      >
+                        {!mining &&
+                          <>send</>
+                        }
+                        {mining &&
+                          <>
+                            <span className="mr-3">
+                              mining
+                            </span>
+                            <span className="mining">
+                              <span role="img" aria-label="waiting">⏳</span>
+                            </span>
+                          </>
+                        }
+                      </button>
+                    </form>
                   </div>
-                  {newMessage && idx === 0 && (
-                    <div className="flex-0">
-                      <div className="badge badge-success">
-                        New Message
-                      </div>
-                    </div>
-                  )}
                 </div>
               </div>
-            )
-          })}
+            </div>
+            {allWaves.map((wave, idx) => {
+              return (
+                <div key={idx} className="card shadow-lg compact side bg-base-100">
+                  <div className="flex-row items-center space-x-4 card-body">
+                    <div className="flex-1">
+                      <h3 className="card-title">
+                        {wave.message}
+                      </h3>
+                      <p className="text-base-content text-opacity-40">
+                        {wave.address}
+                      </p>
+                      <p className="text-base-content text-opacity-40">
+                        {wave.timestamp.toString()}
+                      </p>
+                    </div>
+                    {newMessage && idx === 0 && (
+                      <div className="flex-0">
+                        <div className="badge badge-success">
+                          New Message
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+        <div className="lg:w-3/12 m-1 hidden lg:block">
+          <div className="grid grid-cols-1 gap-6 p-10 sm:bg-base-200 rounded-box mb-5 m-h-600">
+            <div className="card shadow-lg compact side bg-base-100">
+              <div className="card-body">
+                <div className="stat-value text-primary">{allWaves.length}</div> 
+                <div className="stat-title">Messages so far</div> 
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
