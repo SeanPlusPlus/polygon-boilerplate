@@ -66,22 +66,19 @@ export default function Main() {
         const wavePortalContract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
 
         let count = await wavePortalContract.getTotalWaves();
-        console.log("Retrieved total wave count...", count.toNumber());
 
         /*
         * Execute the actual wave from your smart contract
         */
-        console.log("message", message);
         const waveTxn = await wavePortalContract.wave(message, { gasLimit: 300000 })
         setMining(true);
-        console.log("Mining...", waveTxn.hash);
-
         await waveTxn.wait();
-        console.log("Mined -- ", waveTxn.hash);
 
+        /*
+        * Once we have the count we're good to go
+        */
         count = await wavePortalContract.getTotalWaves();
         setMining(false);
-        console.log("Retrieved total wave count...", count.toNumber());
 
         const waves = await wavePortalContract.getAllWaves();
         let wavesCleaned = [];
@@ -93,7 +90,6 @@ export default function Main() {
           });
         });
         wavesCleaned.reverse();
-        console.log('wavesCleaned', wavesCleaned);
         setAllWaves(wavesCleaned);
         setDisabled(false);
         setNewMessage(true)
