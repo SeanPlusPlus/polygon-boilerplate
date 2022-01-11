@@ -1,6 +1,6 @@
 import { ThirdwebWeb3Provider } from "@3rdweb/hooks";
 import "regenerator-runtime/runtime.js";
-import AppContextProvider from "../providers/AppContextProvider";
+import AppContextProvider from "../context/AppContextProvider";
 import '../styles/globals.css'
 
 // 4 = Rinkeby

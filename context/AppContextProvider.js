@@ -1,5 +1,5 @@
 import React from "react";
-import AppContext, { defaultValues as state } from "../context/AppContext";
+import AppContext, { defaultValues as state } from "./AppContext";
 
 const { Provider } = AppContext;
 
