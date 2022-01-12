@@ -5,8 +5,9 @@ import '../styles/globals.css'
 
 const supportedChainIds = [
   1,
-  4,    // Rinkeby
+  4,      // Rinkeby
   137,
+  80001,  // Mumbai
 ];
 
 // Include what type of wallet you want to support
