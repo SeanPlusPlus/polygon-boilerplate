@@ -3,8 +3,11 @@ import "regenerator-runtime/runtime.js";
 import AppContextProvider from "../context/AppContextProvider";
 import '../styles/globals.css'
 
-// 4 = Rinkeby
-const supportedChainIds = [1, 4, 137];
+const supportedChainIds = [
+  1,
+  4,    // Rinkeby
+  137,
+];
 
 // Include what type of wallet you want to support
 // In this case, we support Metamask which is an "injected wallet"
