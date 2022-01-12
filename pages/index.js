@@ -16,9 +16,7 @@ export default function App() {
                   Hello <span role="img" aria-label="wave">👋</span>
                 </h2>
                 <div className="bio">
-                  <p className="pb-5">
-                    <About />
-                  </p>
+                  <About />
                 </div>
               </div>
             </div>
