@@ -5,7 +5,7 @@ export default function About() {
         My name&apos;s <a className="link link-secondary" href="https://twitter.com/seanplusplus" target="_blank" rel="noopener noreferrer">Sean</a>, I&apos;m a Sr Software Engineer at Disney digital media, and am super interested in this whole web3 space. 
       </p>
       <p className="pb-4">
-        What you&apos;re seeing here is a simple, proof-of-concept <a className="link link-secondary" href="https://github.com/SeanPlusPlus/polygon-boilerplate" target="_blank" rel="noopener noreferrer">Next.js frontend</a>, communicating with <a className="link link-secondary" href="https://github.com/SeanPlusPlus/polygon-boilerplate-smart-contract" target="_blank" rel="noopener noreferrer">this smart contract</a>, deployed to the Polygon L2 Ethereum protocol.
+        What you&apos;re seeing here is a simple, proof-of-concept <a className="link link-secondary" href="https://github.com/SeanPlusPlus/polygon-boilerplate" target="_blank" rel="noopener noreferrer">Next.js frontend</a>, communicating with <a className="link link-secondary" href="https://github.com/SeanPlusPlus/polygon-boilerplate-smart-contract" target="_blank" rel="noopener noreferrer">this smart contract</a>, deployed to the Polygon Ethereum L2.
       </p>
       <p className="pb-4">
         To play along, follow these 3 steps:
