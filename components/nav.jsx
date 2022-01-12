@@ -6,7 +6,7 @@ export default function Nav({ address }) {
       </div> 
       <div className="flex-1 hidden px-2 mx-2 lg:flex">
         <span className="text-lg font-bold">
-          Web3 Boilerplate
+          Polygon  Boilerplate
         </span>
       </div> 
       <div className="flex-none">

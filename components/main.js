@@ -144,7 +144,7 @@ export default function Main() {
   return (
     <div>
       <Head>
-        <title>Web3 Boilerplate</title>
+        <title>Polygon Boilerplate</title>
         <meta name="description" content="SeanPlusPlus NextJS" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
